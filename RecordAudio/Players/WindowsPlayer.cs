@@ -47,8 +47,11 @@ namespace NetCoreAudio.Players
             var sb = new StringBuilder();
 
             mciSendString("open new Type waveaudio Alias recsound", sb, 0, IntPtr.Zero);
+            mciSendString("set recsound bitspersample 16 channels 1 format tag pcm samplespersec 16000", sb, 0, IntPtr.Zero);
             mciSendString("record recsound", sb, 0, IntPtr.Zero);
-            Console.WriteLine("recording, press Enter to stop and save ...");
+            System.Threading.Thread.Sleep(10000);
+            StopRecording();
+            //Console.WriteLine("recording, press Enter to stop and save ...");
             //Console.ReadLine();
 
             //mciSendString("save recsound c:\\users\\ogilo\\documents\\result.wav", sb, 0, IntPtr.Zero);

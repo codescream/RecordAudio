@@ -19,16 +19,16 @@ namespace RecordAudio
             mciSendString("close recsound ", "", 0, 0);*/
 
             Player player = new Player();
+            Console.WriteLine("recording for only 10secs....");
             player.Record().Wait();
-            Console.WriteLine("type stop to stop recording...");
-            string stop = Console.ReadLine();
+            //string stop = Console.ReadLine();
 
-            if (stop == "stop")
+            /*if (stop == "stop")
             {
-                Console.WriteLine("stopping recording...");
+                //Console.WriteLine("stopping recording...");
                 player.StopRecording().Wait();
-                Console.ReadLine();
-            }
+                //Console.ReadLine();
+            }*/
         }
     }
 }
